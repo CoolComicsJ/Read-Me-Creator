@@ -1,12 +1,12 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-inquirer
-.prompt([
+
+inquirer.prompt([
     {
         type: 'input',
-        name: 'documentName',
-        message: 'What would you like to name this Read Me?',
+        name: 'projectName',
+        message: 'What is the name of this project?',
     },
     {
         type: 'input',
@@ -15,13 +15,30 @@ inquirer
     },
     {
         type: 'input',
-        name: 'tableOfcontents',
-        message: 'Please type out a table of contents for your Read Me.',
-    },
-    {
-        type: 'input',
         name: 'installation',
         message: 'Now, detail in length how your application should be installed.',
     },
-    
-])
+    {
+        type: 'list',
+        name: 'licenseChoice',
+        message: 'Choose a license for your project.',
+        choices:  ['MIT License', 'Mozilla Public License 2.0', 'Creative Commons Zero v1.0 Unicversal']
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Detail how your application should be used.',
+    },
+    {
+        type: 'input',
+        name: 'contributions',
+        message: 'Credit whomever contributed to the creation of this application.',
+    },
+    {
+        type: 'input',
+        name: 'testInstructions',
+        message: 'Write out how your application should be tested for functionality.',
+    }
+]).then((data) => {
+    console.log(data)
+})
