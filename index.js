@@ -39,13 +39,16 @@ ${contributions}
 ## Questions<a name="questions"></a>
     
 To contact me please refer to the following links
-${email}
-${gitHuburl}
+\n${email}
+\n${gitHuburl}
     
 ## License
   
 
-${licenseChoice}`
+${licenseChoice}
+
+`
+
 
 
 
@@ -98,6 +101,7 @@ inquirer.prompt([
     }
 ]).then((answers) => {
     console.log(answers)
+
     const readMeAnswers = generateReadMe(answers);
 
     fs.writeFile('readme.md', readMeAnswers, (err) =>
